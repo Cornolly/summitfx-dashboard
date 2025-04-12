@@ -4,7 +4,7 @@ const QuoteDashboard = () => {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://your-flask-backend-url/api/quotes")
+    fetch("https://summitfx-dashboard-production.up.railway.app/")
       .then((res) => res.json())
       .then((data) => setQuotes(data))
       .catch((err) => console.error("Error fetching quotes:", err));
