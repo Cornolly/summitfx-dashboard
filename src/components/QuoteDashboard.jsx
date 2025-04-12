@@ -5,9 +5,7 @@ const QuoteDashboard = () => {
 
   useEffect(() => {
     fetch("https://quote-staging.up.railway.app/api/quotes", {
-      headers: {
-        "Authorization": "Basic " + btoa("summit:fxrocks123")  // 👈 This adds auth
-      }
+      credentials: "include" // 👈 Triggers browser Basic Auth popup
     })
       .then((res) => {
         if (!res.ok) {
@@ -21,6 +19,7 @@ const QuoteDashboard = () => {
       })
       .catch((err) => console.error("❌ Error fetching quotes:", err));
   }, []);
+  
   
   
   
