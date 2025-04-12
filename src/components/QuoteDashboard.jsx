@@ -4,11 +4,15 @@ const QuoteDashboard = () => {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://summitfx-dashboard-production.up.railway.app/api/quotes")
+    fetch("https://quote-staging.up.railway.app/")
       .then((res) => res.json())
-      .then((data) => setQuotes(data))
+      .then((data) => {
+        console.log("📦 Quotes fetched:", data); // ADD THIS
+        setQuotes(data);
+      })
       .catch((err) => console.error("Error fetching quotes:", err));
   }, []);
+  
   
 
   return (
