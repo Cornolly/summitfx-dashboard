@@ -4,14 +4,24 @@ const QuoteDashboard = () => {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://quote-staging.up.railway.app/api/quotes")
-      .then((res) => res.json())
+    fetch("https://quote-staging.up.railway.app/api/quotes", {
+      headers: {
+        "Authorization": "Basic " + btoa("summit:fxrocks123")  // 👈 This adds auth
+      }
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        console.log("📦 Quotes fetched:", data); // ADD THIS
+        console.log("📦 Quotes fetched:", data);
         setQuotes(data);
       })
-      .catch((err) => console.error("Error fetching quotes:", err));
+      .catch((err) => console.error("❌ Error fetching quotes:", err));
   }, []);
+  
   
   
 
