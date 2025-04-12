@@ -4,7 +4,7 @@ const QuoteDashboard = () => {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://quote-staging.up.railway.app/")
+    fetch("https://quote-staging.up.railway.app/api/quotes")
       .then((res) => res.json())
       .then((data) => {
         console.log("📦 Quotes fetched:", data); // ADD THIS
