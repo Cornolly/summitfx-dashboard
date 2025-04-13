@@ -4,7 +4,7 @@ const QuoteDashboard = () => {
   const [quotes, setQuotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://quote-staging.up.railway.app/api/quotes", {
+    fetch("https://quote-production-f1f1.up.railway.app/", {
       credentials: "include" // 👈 Triggers browser Basic Auth popup
     })
       .then((res) => {
